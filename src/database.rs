@@ -53,22 +53,22 @@ impl DataBase {
         let mut row_size = 0;
         match row_type {
             "bool" => row_size += 1,
-            "u8" => row_size = row_size + 1,
-            "u16" => row_size = row_size + 2,
-            "u32" => row_size = row_size + 4,
-            "u64" => row_size = row_size + 8,
-            "i8" => row_size = row_size + 1,
-            "i16" => row_size = row_size + 2,
-            "i32" => row_size = row_size + 4,
-            "i64" => row_size = row_size + 8,
-            "f64" => row_size = row_size + 64,
-            "f32" => row_size = row_size + 32,
-            "char" => row_size = row_size + 4,
-            "string8" => row_size = row_size + 32,
-            "string16" => row_size = row_size + 64,
-            "string32" => row_size = row_size + 128,
-            "string64" => row_size = row_size + 256,
-            "string128" => row_size = row_size + 512,
+            "u8" => row_size += 1,
+            "u16" => row_size += 2,
+            "u32" => row_size += 4,
+            "u64" => row_size += 8,
+            "i8" => row_size += 1,
+            "i16" => row_size += 2,
+            "i32" => row_size += 4,
+            "i64" => row_size += 8,
+            "f64" => row_size += 64,
+            "f32" => row_size += 32,
+            "char" => row_size += 4,
+            "string8" => row_size += 32,
+            "string16" => row_size += 64,
+            "string32" => row_size += 128,
+            "string64" => row_size += 256,
+            "string128" => row_size += 512,
             _ => {
                 panic!("type of row not found")
             }
@@ -81,7 +81,7 @@ impl Display for DataBase {
         let mut string =
             self.name.clone() + " with row size of " + self.row_size.to_string().as_str() + " :";
         for row in self.rows.clone() {
-            string.push_str(&*("(".to_owned() + row.0.as_str() + "," + row.1.as_str() + ") "));
+            string.push_str(&("(".to_owned() + row.0.as_str() + "," + row.1.as_str() + ") "));
         }
         write!(f, "{}", string)
     }
