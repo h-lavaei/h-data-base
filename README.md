@@ -1,1 +1,1 @@
-a simple secure and fast data base writen in rust
+a simple secure and fast database written in rust
